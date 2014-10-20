@@ -45,8 +45,8 @@ class Member < ActiveRecord::Base
   end
 
   def title
-    return 'Mentor' if mentor?
-    return 'Leadership' if leadership?
+    return '(Mentor)' if mentor?
+    return '(Leadership)' if leadership?
   end
 
   private
