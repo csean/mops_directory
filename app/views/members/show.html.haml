@@ -28,6 +28,9 @@
   %b Business:
   = link_to @member.business_name, @member.business_url, target: '_blank'
 
+- if can? :manage, Member
+  = link_to 'New Member', new_member_path if can? :manage, Member
+  |\
 = link_to 'Edit', edit_member_path(@member)
 \|
 = link_to 'Back', members_path

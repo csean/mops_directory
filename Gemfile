@@ -55,6 +55,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'capistrano', '~> 3.2.0'
 end
 
 group :assets do
