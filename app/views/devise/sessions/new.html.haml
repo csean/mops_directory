@@ -1,0 +1,10 @@
+.authform
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f|
+
+    %h2 MOPS Directory Sign in
+    .form-inputs
+      = f.input :username, required: false, autofocus: true
+      = f.input :password, required: false
+
+    .form-actions
+      = f.button :submit, "Sign in", class: 'button'

@@ -1,0 +1,25 @@
+.authform
+  = simple_form_for(@member, html: { class: 'form-horizontal' }) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :birthday
+      = f.input :address
+      = f.input :city
+      = f.input :zip
+      = f.input :phone, as: :tel
+      = f.input :email, as: :email
+      = f.input :mentor
+      = f.input :leadership
+      = f.input :business_name
+      = f.input :business_url, as: :url
+
+      #children
+        = f.simple_fields_for :children do |child|
+          = render 'child_fields', f: child
+        .links
+          = link_to_add_association 'Add Child', f, :children
+    .form-actions
+      = f.button :submit

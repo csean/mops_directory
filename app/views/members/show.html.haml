@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @member.name
+%p
+  %b Birthday:
+  = @member.birthday.strftime('%B %d')
+%p
+  %b Address:
+  = @member.address
+%p
+  %b City:
+  = @member.city
+%p
+  %b State:
+  = @member.state
+%p
+  %b Zip:
+  = @member.zip
+%p
+  %b Phone:
+  = @member.phone
+%p
+  %b Email:
+  = mail_to @member.email
+%p
+  %b Business:
+  = link_to @member.business_name, @member.business_url, target: '_blank'
+
+= link_to 'Edit', edit_member_path(@member)
+\|
+= link_to 'Back', members_path

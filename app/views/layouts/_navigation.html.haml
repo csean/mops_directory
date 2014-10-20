@@ -1,0 +1,9 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to 'Home', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      - if user_signed_in?
+        %ul.nav.navbar-nav
+          %li
+            = link_to 'Sign out', destroy_user_session_path, :method=>'delete'

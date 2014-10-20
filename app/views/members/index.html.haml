@@ -1,0 +1,32 @@
+%h1 UUMC MOPS Members
+
+%table.table.table-border.table-striped
+  %tr
+    %th Name
+    %th Birthday
+    %th Address
+    %th City
+    %th Phone
+    %th Email
+    %th Business
+    %th
+
+  - @members.each do |member|
+    %tr
+      %td
+        #{member.name} #{member.title}
+      %td= member.birthday.strftime('%b %d')
+      %td= member.address
+      %td= member.city
+      %td= number_to_phone(member.phone)
+      %td= mail_to member.email
+      %td= link_to member.business_name, member.business_url, target: '_blank'
+      %td
+        = link_to 'View', member
+        - if can? :manage, member
+          = link_to 'Edit', edit_member_path(member)
+          = link_to 'Destroy', member, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Member', new_member_path if can? :manage, Member
